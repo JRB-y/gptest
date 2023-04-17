@@ -1,0 +1,61 @@
+{
+  "name": "gptest",
+  "author": "Jrb You <jrb.youssef@gmail.com>",
+  "displayName": "gptest",
+  "description": "VS Code extension to generate test files with ChatGPT.",
+  "version": "0.0.1",
+  "keywords": [
+    "openai",
+    "chatgpt",
+    "test",
+    "unit-test",
+    "generate"
+  ],
+  "engines": {
+    "vscode": "^1.77.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "gptest.gptest",
+        "category": "GPTest",
+        "title": "Generate tests"
+      }
+    ],
+    "configuration": {
+      "title": "GPTest",
+      "type": "object",
+      "properties": {
+        "gptest.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "OpenAI API key for GPTest"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@types/vscode": "^1.77.0",
+    "@vscode/test-electron": "^2.3.0",
+    "eslint": "^8.36.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "openai": "^3.2.1"
+  }
+}
