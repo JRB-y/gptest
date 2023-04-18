@@ -25,6 +25,11 @@
         "command": "gptest.gptest",
         "category": "GPTest",
         "title": "Generate tests"
+      },
+      {
+        "command": "gptest.setApiKey",
+        "category": "GPTest",
+        "title": "Set OpenAI Api key"
       }
     ],
     "configuration": {
