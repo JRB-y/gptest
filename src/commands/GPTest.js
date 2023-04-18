@@ -1,10 +1,12 @@
 const vscode = require('vscode');
-const openAIApi = require('./openai');
+const { initOpenAI } = require('../openai');
 
 module.exports = vscode.commands.registerCommand('gptest.gptest', async function () {
   const editor = vscode.window.activeTextEditor;
   if (!editor) vscode.window.showErrorMessage('You need an active text editor to use GPTest');
   try {
+    const openai = await initOpenAI();
+
     await vscode.window.withProgress({
       location: vscode.ProgressLocation.Notification,
       title: 'GPTest',
@@ -12,7 +14,6 @@ module.exports = vscode.commands.registerCommand('gptest.gptest', async function
     }, async (progress) => {
       progress.report({ message: 'GPTest is writting the tests...' });
 
-      const openai = await openAIApi();
 
       const content = editor.document.getText().replace(/\n/g, ' ').replace(/\s+/g, ' ').replace(/\t+/g, '').trim();
       const languageId = editor.document.languageId;
