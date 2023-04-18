@@ -30,6 +30,11 @@
         "command": "gptest.setApiKey",
         "category": "GPTest",
         "title": "Set OpenAI Api key"
+      },
+      {
+        "command": "gptest.setLibrary",
+        "category": "GPTest",
+        "title": "Set a testing library"
       }
     ],
     "configuration": {
@@ -40,6 +45,11 @@
           "type": "string",
           "default": "",
           "description": "OpenAI API key for GPTest"
+        },
+        "gptest.lib": {
+          "type": "string",
+          "default": "",
+          "description": "Lib to be used. If not set ChatGPT will choose one of the most popular libraries"
         }
       }
     }
